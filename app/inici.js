@@ -1,6 +1,5 @@
-import { Background } from "@react-navigation/elements";
-import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
 import { Button, PaperProvider, TextInput } from "react-native-paper";
 
 const Inici = () => {
@@ -48,12 +47,23 @@ const Inici = () => {
 
     }
     return (
+        
         <PaperProvider>
-            {nom("david serrano tarazona", { fontSize: 30, textAlign: 'center', color: 'blue' })}
-            {dades()}
-            {verBoton()}
-            
+           
+                {nom("david serrano tarazona", { fontSize: 30, textAlign: 'center', color: 'blue' })}
+                {dades()}
+                {verBoton()}
+                {moduls2Dam.map((elem, index) => {
+                    return (<View key={index} style={{ backgroundColor: index % 2 == 0 ? '#F48FB1' : '#F8BBD0', padding: 10 }}>
+                        <Text>nom: {elem.nom}</Text>
+                        <Text>hores: {elem.hores}</Text>
+                        <Text>professor: {elem.professor}</Text>
+                    </View>
+                    );
+                })}
+         
         </PaperProvider>
+        
     );
 }
 
